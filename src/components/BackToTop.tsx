@@ -1,0 +1,35 @@
+import { useState, useEffect } from 'react';
+import { ArrowUp } from 'lucide-react';
+
+interface BackToTopProps {
+  playClick: () => void;
+}
+
+export default function BackToTop({ playClick }: BackToTopProps) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setVisible(window.scrollY > 500);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    playClick();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <button
+      onClick={scrollToTop}
+      className={`fixed bottom-6 right-6 z-[999] w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/25 transition-all duration-500 hover:scale-110 ${
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+      }`}
+      aria-label="Back to top"
+    >
+      <ArrowUp size={20} className="text-white" />
+    </button>
+  );
+}
