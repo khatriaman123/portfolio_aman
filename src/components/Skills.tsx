@@ -42,7 +42,7 @@ export default function Skills() {
           {skills.map((skill, i) => (
             <div
               key={skill.name}
-              className="group relative glass-light rounded-xl p-4 sm:p-5 text-center hover:border-blue-500/30 transition-all duration-500 hover:scale-105 hover:-translate-y-1"
+              className="group relative glass-glow rounded-xl p-4 sm:p-5 text-center transition-all duration-500 hover:scale-105 hover:-translate-y-1 cursor-default"
               style={{ animationDelay: `${i * 50}ms` }}
             >
               <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${categoryColors[skill.category] || 'from-blue-500 to-cyan-500'} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />

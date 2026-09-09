@@ -57,27 +57,27 @@ export default function Footer({ onNavigate, playClick }: FooterProps) {
           <div className="space-y-3">
             <h4 className="text-sm font-semibold text-white">Connect</h4>
             <div className="flex gap-3">
-              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-blue-500/20 hover:border-blue-500/30 border border-gray-800 transition-all" aria-label="LinkedIn">
-                <Linkedin size={16} className="text-gray-400" />
+              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="btn-icon" aria-label="LinkedIn">
+                <Linkedin size={16} />
               </a>
-              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-blue-500/20 hover:border-blue-500/30 border border-gray-800 transition-all" aria-label="GitHub">
-                <Github size={16} className="text-gray-400" />
+              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="btn-icon" aria-label="GitHub">
+                <Github size={16} />
               </a>
-              <a href={personalInfo.instagram} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-blue-500/20 hover:border-blue-500/30 border border-gray-800 transition-all" aria-label="Instagram">
-                <Instagram size={16} className="text-gray-400" />
+              <a href={personalInfo.instagram} target="_blank" rel="noopener noreferrer" className="btn-icon" aria-label="Instagram">
+                <Instagram size={16} />
               </a>
             </div>
             <div className="flex flex-col gap-2 mt-4">
               <button
                 onClick={() => { playClick(); onNavigate('#contact'); }}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 text-xs font-medium bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all"
+                className="btn-primary text-xs py-3"
               >
                 LET'S GROW TOGETHER <ArrowRight size={12} />
               </button>
               <a
                 href="/resume.pdf"
                 download
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 text-xs font-medium border border-gray-700 text-gray-400 rounded-lg hover:border-blue-500/50 hover:text-white transition-all"
+                className="btn-secondary text-xs py-3"
               >
                 Download Resume
               </a>

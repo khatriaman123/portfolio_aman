@@ -38,10 +38,10 @@ export default function Services() {
             return (
               <div
                 key={i}
-                className="group glass-light rounded-xl p-6 hover:border-blue-500/30 transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1"
+                className="group glass-glow rounded-xl p-6 transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 cursor-default"
                 style={{ animationDelay: `${i * 50}ms` }}
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mb-4 group-hover:from-blue-500/30 group-hover:to-cyan-500/30 transition-all">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/10 flex items-center justify-center mb-4 group-hover:from-blue-500/30 group-hover:to-cyan-500/20 transition-all shadow-lg shadow-blue-500/5 group-hover:shadow-blue-500/10">
                   <Icon size={22} className="text-blue-400 group-hover:text-cyan-400 transition-colors" />
                 </div>
                 <h3 className="text-base font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">

@@ -57,7 +57,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
   return (
     <div
       ref={cardRef}
-      className="reveal group glass-light rounded-2xl p-6 sm:p-8 hover:border-blue-500/30 transition-all duration-500"
+      className="reveal group glass-premium rounded-2xl p-6 sm:p-8 transition-all duration-500"
       style={{
         transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
         transition: 'transform 0.3s ease, border-color 0.3s ease',
@@ -69,8 +69,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       {/* Project number */}
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-mono text-gray-500">0{project.id}</span>
-        <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
-          <Code2 size={18} className="text-blue-400" />
+        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/10 flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-cyan-500/20 transition-all shadow-lg shadow-blue-500/5">
+          <Code2 size={18} className="text-blue-400 group-hover:text-cyan-400 transition-colors" />
         </div>
       </div>
 
@@ -87,7 +87,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       {/* Technologies */}
       <div className="flex flex-wrap gap-2 mb-6">
         {project.technologies.map((tech) => (
-          <span key={tech} className="px-2.5 py-1 text-[10px] font-medium tracking-wider uppercase rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">
+          <span key={tech} className="px-2.5 py-1 text-[10px] font-medium tracking-wider uppercase rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20 backdrop-blur-sm shadow-sm shadow-blue-500/5">
             {tech}
           </span>
         ))}
@@ -96,17 +96,17 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       {/* Links */}
       <div className="flex gap-3">
         {project.github && (
-          <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 text-xs font-medium text-gray-300 border border-gray-700 rounded-lg hover:border-blue-500/50 hover:text-white transition-all">
-            <Github size={14} /> GitHub
+          <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-icon" aria-label="View on GitHub">
+            <Github size={16} />
           </a>
         )}
         {project.liveDemo && (
-          <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 text-xs font-medium text-gray-300 border border-gray-700 rounded-lg hover:border-cyan-500/50 hover:text-white transition-all">
-            <ExternalLink size={14} /> Live Demo
+          <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="btn-icon" aria-label="View live demo">
+            <ExternalLink size={16} />
           </a>
         )}
         {!project.github && !project.liveDemo && (
-          <span className="text-xs text-gray-500 italic">Links coming soon</span>
+          <span className="text-xs text-gray-500 italic flex items-center">Links coming soon</span>
         )}
       </div>
     </div>

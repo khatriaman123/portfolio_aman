@@ -24,7 +24,7 @@ function SoundToggle({ enabled, toggle }: { enabled: boolean; toggle: () => void
   return (
     <button
       onClick={toggle}
-      className="fixed bottom-6 left-6 z-[999] w-10 h-10 rounded-full glass flex items-center justify-center hover:scale-110 transition-all"
+      className="fixed bottom-6 left-6 z-[999] btn-icon w-10 h-10 rounded-full hover:scale-110 transition-all"
       aria-label={enabled ? 'Mute sounds' : 'Enable sounds'}
     >
       {enabled ? <Volume2 size={16} className="text-blue-400" /> : <VolumeX size={16} className="text-gray-500" />}

@@ -38,10 +38,10 @@ export default function WhyMe({ onNavigate, playClick }: WhyMeProps) {
             {whyMePoints.map((point, i) => (
               <div
                 key={i}
-                className="group flex items-start gap-3 glass-light rounded-xl p-4 hover:border-blue-500/30 transition-all duration-300 hover:scale-[1.02]"
+                className="group flex items-start gap-3 glass-glow rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] cursor-default"
               >
-                <div className="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-blue-500/20 transition-colors">
-                  <CheckCircle2 size={14} className="text-blue-400" />
+                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:from-blue-500/30 group-hover:to-cyan-500/20 transition-all shadow-lg shadow-blue-500/5">
+                  <CheckCircle2 size={14} className="text-blue-400 group-hover:text-cyan-400 transition-colors" />
                 </div>
                 <span className="text-sm text-gray-300 group-hover:text-white transition-colors">{point}</span>
               </div>
@@ -51,7 +51,7 @@ export default function WhyMe({ onNavigate, playClick }: WhyMeProps) {
           <div className="reveal text-center mt-12">
             <button
               onClick={() => { playClick(); onNavigate('#contact'); }}
-              className="group px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl font-semibold text-sm tracking-wide hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 inline-flex items-center gap-2"
+              className="btn-primary group"
             >
               <Sparkles size={16} />
               LET'S GROW TOGETHER

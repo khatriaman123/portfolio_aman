@@ -61,13 +61,16 @@ export default function Navbar({ onNavigate, playClick }: NavbarProps) {
               <button
                 key={link.href}
                 onClick={() => handleClick(link.href)}
-                className={`px-3 py-2 text-xs font-medium tracking-wide rounded-lg transition-all duration-300 ${
+                className={`relative px-3 py-2 text-xs font-medium tracking-wide rounded-lg transition-all duration-300 ${
                   activeSection === link.href.replace('#', '')
-                    ? 'text-cyan-400 bg-cyan-400/10'
-                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                    ? 'text-cyan-400'
+                    : 'text-gray-400 hover:text-white'
                 }`}
               >
                 {link.label}
+                {activeSection === link.href.replace('#', '') && (
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" />
+                )}
               </button>
             ))}
           </div>
@@ -78,14 +81,14 @@ export default function Navbar({ onNavigate, playClick }: NavbarProps) {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 text-xs font-medium text-gray-300 border border-gray-700 rounded-lg hover:border-blue-500/50 hover:text-white transition-all"
+              className="nav-btn-secondary"
               onClick={playClick}
             >
               Resume
             </a>
             <button
               onClick={() => handleClick('#contact')}
-              className="px-4 py-2 text-xs font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all hover:scale-105"
+              className="nav-btn-primary"
             >
               Let's Grow Together
             </button>

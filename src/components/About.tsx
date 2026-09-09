@@ -54,12 +54,12 @@ export default function About() {
               return (
                 <div
                   key={i}
-                  className="glass-light rounded-xl p-4 flex items-center gap-3 hover:border-blue-500/30 transition-all duration-300 group hover:scale-[1.02]"
+                  className="glass-glow rounded-xl p-4 flex items-center gap-3 group hover:scale-[1.02] cursor-default"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
-                    <Icon size={16} className="text-blue-400" />
+                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/10 flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-cyan-500/20 transition-all shadow-lg shadow-blue-500/5 group-hover:shadow-blue-500/10">
+                    <Icon size={16} className="text-blue-400 group-hover:text-cyan-400 transition-colors" />
                   </div>
-                  <span className="text-sm text-gray-300 font-medium">{item}</span>
+                  <span className="text-sm text-gray-300 font-medium group-hover:text-white transition-colors">{item}</span>
                 </div>
               );
             })}

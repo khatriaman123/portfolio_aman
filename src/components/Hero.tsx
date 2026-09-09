@@ -46,14 +46,14 @@ export default function Hero({ onNavigate, playClick }: HeroProps) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <MagneticButton
               onClick={() => { playClick(); onNavigate('#contact'); }}
-              className="group px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl font-semibold text-sm tracking-wide hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 flex items-center gap-2"
+              className="btn-primary group"
             >
               {heroContent.primaryCTA}
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </MagneticButton>
             <MagneticButton
               onClick={() => { playClick(); onNavigate('#projects'); }}
-              className="px-8 py-4 border border-gray-700 rounded-xl font-semibold text-sm tracking-wide text-gray-300 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300"
+              className="btn-secondary"
             >
               {heroContent.secondaryCTA}
             </MagneticButton>

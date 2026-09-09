@@ -42,10 +42,10 @@ export default function Experience() {
 
               {/* Content */}
               <div className={`ml-14 sm:ml-0 sm:w-[45%] ${i % 2 === 0 ? 'sm:pr-12' : 'sm:pl-12'}`}>
-                <div className="glass-light rounded-xl p-6 hover:border-blue-500/30 transition-all duration-300 group hover:scale-[1.02]">
+                <div className="glass-glow rounded-xl p-6 transition-all duration-300 group hover:scale-[1.02] cursor-default">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                      <Briefcase size={18} className="text-blue-400" />
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/10 flex items-center justify-center shadow-lg shadow-blue-500/5 group-hover:shadow-blue-500/10 transition-all">
+                      <Briefcase size={18} className="text-blue-400 group-hover:text-cyan-400 transition-colors" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-white">{exp.title}</h3>

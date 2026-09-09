@@ -94,8 +94,8 @@ export default function Contact({ playSuccess, playClick }: ContactProps) {
         </div>
 
         {submitted ? (
-          <div className="reveal glass-light rounded-2xl p-8 sm:p-12 text-center">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-green-500/10 flex items-center justify-center">
+          <div className="reveal glass-premium rounded-2xl p-8 sm:p-12 text-center">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-green-500/20 to-emerald-500/10 flex items-center justify-center shadow-lg shadow-green-500/10">
               <CheckCircle size={28} className="text-green-400" />
             </div>
             <h3 className="text-xl font-semibold text-white mb-3">Inquiry Prepared!</h3>
@@ -110,28 +110,28 @@ export default function Contact({ playSuccess, playClick }: ContactProps) {
             )}
             <button
               onClick={() => { setSubmitted(false); setForm({ name: '', email: '', phone: '', company: '', projectType: '', budget: '', deadline: '', description: '', referenceWebsite: '', attachment: null, contactMethod: 'EMAIL' }); }}
-              className="mt-6 px-6 py-3 text-sm font-medium border border-gray-700 rounded-lg hover:border-blue-500/50 text-gray-300 hover:text-white transition-all"
+              className="btn-secondary mt-6"
             >
               Send Another Inquiry
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="reveal glass-light rounded-2xl p-6 sm:p-8 space-y-5">
+          <form onSubmit={handleSubmit} className="reveal glass-premium rounded-2xl p-6 sm:p-8 space-y-5">
             {/* Contact Method Toggle */}
             <div className="flex items-center justify-center gap-4 mb-6">
               <span className="text-xs text-gray-400">Send via:</span>
-              <div className="flex rounded-lg overflow-hidden border border-gray-700">
+              <div className="flex rounded-xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-sm">
                 <button
                   type="button"
                   onClick={() => { updateField('contactMethod', 'EMAIL'); playClick(); }}
-                  className={`px-4 py-2 text-xs font-medium transition-all flex items-center gap-2 ${form.contactMethod === 'EMAIL' ? 'bg-blue-500 text-white' : 'text-gray-400 hover:text-white'}`}
+                  className={`px-5 py-2.5 text-xs font-medium transition-all flex items-center gap-2 ${form.contactMethod === 'EMAIL' ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/20' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
                 >
                   <Mail size={14} /> EMAIL
                 </button>
                 <button
                   type="button"
                   onClick={() => { updateField('contactMethod', 'WHATSAPP'); playClick(); }}
-                  className={`px-4 py-2 text-xs font-medium transition-all flex items-center gap-2 ${form.contactMethod === 'WHATSAPP' ? 'bg-green-500 text-white' : 'text-gray-400 hover:text-white'}`}
+                  className={`px-5 py-2.5 text-xs font-medium transition-all flex items-center gap-2 ${form.contactMethod === 'WHATSAPP' ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg shadow-green-500/20' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
                 >
                   <MessageCircle size={14} /> WHATSAPP
                 </button>
@@ -276,7 +276,7 @@ export default function Contact({ playSuccess, playClick }: ContactProps) {
             <button
               type="submit"
               onClick={playClick}
-              className="w-full py-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl font-semibold text-sm tracking-wide hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2"
+              className="btn-primary w-full py-4"
             >
               {form.contactMethod === 'EMAIL' ? <Send size={16} /> : <MessageCircle size={16} />}
               Send Inquiry via {form.contactMethod}
