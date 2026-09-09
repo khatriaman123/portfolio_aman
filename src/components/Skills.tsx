@@ -29,11 +29,11 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" ref={sectionRef} className="relative py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="reveal text-center mb-16">
-          <span className="text-xs tracking-widest text-cyan-400 uppercase">Skills</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3">
+    <section id="skills" ref={sectionRef} className="section-padding">
+      <div className="container-premium">
+        <div className="reveal text-center mb-16 lg:mb-20">
+          <span className="label block mb-4">Skills</span>
+          <h2 className="display-lg text-white">
             Technologies I <span className="gradient-text">Work With</span>
           </h2>
         </div>
@@ -42,17 +42,16 @@ export default function Skills() {
           {skills.map((skill, i) => (
             <div
               key={skill.name}
-              className="group relative glass-glow rounded-xl p-4 sm:p-5 text-center transition-all duration-500 hover:scale-105 hover:-translate-y-1 cursor-default"
+              className="group relative glass-glow rounded-xl p-4 sm:p-5 text-center transition-all duration-500 hover:scale-[1.03] cursor-default"
               style={{ animationDelay: `${i * 50}ms` }}
             >
-              <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${categoryColors[skill.category] || 'from-blue-500 to-cyan-500'} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-              <div className={`w-10 h-10 mx-auto mb-3 rounded-lg bg-gradient-to-br ${categoryColors[skill.category] || 'from-blue-500 to-cyan-500'} flex items-center justify-center text-white font-bold text-sm opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300`}>
+              <div className={`w-11 h-11 mx-auto mb-3 rounded-lg bg-gradient-to-br ${categoryColors[skill.category] || 'from-blue-500 to-cyan-500'} flex items-center justify-center text-white font-bold text-sm opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 shadow-lg`}>
                 {skill.name.charAt(0)}
               </div>
-              <h3 className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors">
+              <h3 className="text-sm font-semibold text-gray-200 group-hover:text-white transition-colors">
                 {skill.name}
               </h3>
-              <p className="text-[10px] text-gray-500 mt-1 uppercase tracking-wider">
+              <p className="text-[10px] text-gray-500 mt-1.5 uppercase tracking-wider font-medium">
                 {skill.category}
               </p>
             </div>

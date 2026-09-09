@@ -19,16 +19,16 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" ref={sectionRef} className="relative py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="reveal text-center mb-16">
-          <span className="text-xs tracking-widest text-cyan-400 uppercase">Projects</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3">
+    <section id="projects" ref={sectionRef} className="section-padding">
+      <div className="container-premium">
+        <div className="reveal text-center mb-16 lg:mb-20">
+          <span className="label block mb-4">Projects</span>
+          <h2 className="display-lg text-white">
             Featured <span className="gradient-text">Work</span>
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-5 lg:gap-6">
           {projects.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
@@ -47,7 +47,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setTilt({ x: y * -10, y: x * 10 });
+    setTilt({ x: y * -8, y: x * 8 });
   };
 
   const handleMouseLeave = () => {
@@ -66,35 +66,35 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Project number */}
-      <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-mono text-gray-500">0{project.id}</span>
-        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/10 flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-cyan-500/20 transition-all shadow-lg shadow-blue-500/5">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-5">
+        <span className="text-xs font-mono text-gray-600">0{project.id}</span>
+        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/15 to-cyan-500/10 flex items-center justify-center group-hover:from-blue-500/25 group-hover:to-cyan-500/15 transition-all shadow-lg shadow-blue-500/5">
           <Code2 size={18} className="text-blue-400 group-hover:text-cyan-400 transition-colors" />
         </div>
       </div>
 
       {/* Title */}
-      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+      <h3 className="heading-md text-white mb-3 group-hover:text-cyan-400 transition-colors">
         {project.title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-400 text-sm leading-relaxed mb-5">
+      <p className="body-sm mb-5">
         {project.description}
       </p>
 
       {/* Technologies */}
       <div className="flex flex-wrap gap-2 mb-6">
         {project.technologies.map((tech) => (
-          <span key={tech} className="px-2.5 py-1 text-[10px] font-medium tracking-wider uppercase rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20 backdrop-blur-sm shadow-sm shadow-blue-500/5">
+          <span key={tech} className="px-2.5 py-1 text-[10px] font-semibold tracking-wider uppercase rounded-md bg-blue-500/8 text-blue-300 border border-blue-500/15">
             {tech}
           </span>
         ))}
       </div>
 
       {/* Links */}
-      <div className="flex gap-3">
+      <div className="flex items-center gap-3">
         {project.github && (
           <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-icon" aria-label="View on GitHub">
             <Github size={16} />
@@ -106,7 +106,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           </a>
         )}
         {!project.github && !project.liveDemo && (
-          <span className="text-xs text-gray-500 italic flex items-center">Links coming soon</span>
+          <span className="text-xs text-gray-600 italic">Links coming soon</span>
         )}
       </div>
     </div>

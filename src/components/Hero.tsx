@@ -12,63 +12,70 @@ interface HeroProps {
 
 export default function Hero({ onNavigate, playClick }: HeroProps) {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden hero-gradient">
       {/* 3D Background */}
       <Suspense fallback={null}>
         <HeroScene />
       </Suspense>
 
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/50 via-transparent to-navy-950 z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy-950/80 via-transparent to-navy-950/80 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-transparent to-navy-950 z-[1] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-950/40 to-transparent z-[1] pointer-events-none" />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
-        <div className="space-y-6">
-          {/* Brand */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-light text-xs tracking-widest text-cyan-400">
-            <Code2 size={14} />
-            <span>{personalInfo.brand}</span>
+      {/* Content - Two column on desktop */}
+      <div className="relative z-10 container-premium w-full">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen py-24 lg:py-0">
+          {/* Left - Text content */}
+          <div className="space-y-6 lg:space-y-8 max-w-2xl">
+            {/* Brand badge */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-light text-xs tracking-widest text-cyan-400 font-medium">
+              <Code2 size={14} className="text-cyan-400" />
+              <span>{personalInfo.brand}</span>
+            </div>
+
+            {/* Headline */}
+            <h1 className="display-xl text-white">
+              <span className="block">Turning Ideas</span>
+              <span className="block">Into Powerful</span>
+              <span className="block gradient-text">Digital Experiences.</span>
+            </h1>
+
+            {/* Subtext */}
+            <p className="body-lg max-w-lg">
+              {heroContent.subtext}
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 pt-2">
+              <MagneticButton
+                onClick={() => { playClick(); onNavigate('#contact'); }}
+                className="btn-primary group"
+              >
+                {heroContent.primaryCTA}
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </MagneticButton>
+              <MagneticButton
+                onClick={() => { playClick(); onNavigate('#projects'); }}
+                className="btn-secondary"
+              >
+                {heroContent.secondaryCTA}
+              </MagneticButton>
+            </div>
           </div>
 
-          {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            <span className="text-white">{heroContent.headline.split(' ').slice(0, 3).join(' ')} </span>
-            <span className="gradient-text">{heroContent.headline.split(' ').slice(3).join(' ')}</span>
-          </h1>
-
-          {/* Subtext */}
-          <p className="max-w-2xl mx-auto text-gray-400 text-base sm:text-lg leading-relaxed">
-            {heroContent.subtext}
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <MagneticButton
-              onClick={() => { playClick(); onNavigate('#contact'); }}
-              className="btn-primary group"
-            >
-              {heroContent.primaryCTA}
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </MagneticButton>
-            <MagneticButton
-              onClick={() => { playClick(); onNavigate('#projects'); }}
-              className="btn-secondary"
-            >
-              {heroContent.secondaryCTA}
-            </MagneticButton>
+          {/* Right - 3D scene is already positioned absolutely behind */}
+          <div className="hidden lg:block relative h-[500px] xl:h-[600px]">
+            {/* Spacer for 3D scene positioning */}
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-gray-600 flex items-start justify-center p-1.5">
-          <div className="w-1.5 h-3 rounded-full bg-blue-500 animate-pulse" />
+        <div className="w-5 h-9 rounded-full border border-white/20 flex items-start justify-center p-1.5">
+          <div className="w-1 h-2.5 rounded-full bg-blue-400 animate-pulse" />
         </div>
       </div>
     </section>
   );
 }
-
-

@@ -9,57 +9,52 @@ export default function About() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
+          if (entry.isIntersecting) entry.target.classList.add('active');
         });
       },
       { threshold: 0.1 }
     );
-
-    const elements = sectionRef.current?.querySelectorAll('.reveal');
-    elements?.forEach((el) => observer.observe(el));
-
+    sectionRef.current?.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   const icons = [GraduationCap, GraduationCap, Briefcase, MapPin, Globe, Cpu, Sparkles];
 
   return (
-    <section id="about" ref={sectionRef} className="relative py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" ref={sectionRef} className="section-padding">
+      <div className="container-premium">
         {/* Section header */}
-        <div className="reveal text-center mb-16">
-          <span className="text-xs tracking-widest text-cyan-400 uppercase">About Me</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3">
+        <div className="reveal text-center mb-16 lg:mb-20">
+          <span className="label block mb-4">About Me</span>
+          <h2 className="display-lg text-white">
             Know <span className="gradient-text">Who I Am</span>
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left - Text */}
-          <div className="reveal space-y-6">
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+          <div className="reveal space-y-5">
+            <p className="body-lg">
               {aboutContent.intro}
             </p>
-            <p className="text-gray-400 leading-relaxed">
+            <p className="body-md">
               Based in {personalInfo.location}, I bring together academic knowledge and practical experience to deliver solutions that make a real impact.
             </p>
           </div>
 
           {/* Right - Highlights */}
-          <div className="reveal grid grid-cols-2 gap-3">
+          <div className="reveal grid grid-cols-1 sm:grid-cols-2 gap-3">
             {aboutContent.highlights.map((item, i) => {
               const Icon = icons[i] || Sparkles;
               return (
                 <div
                   key={i}
-                  className="glass-glow rounded-xl p-4 flex items-center gap-3 group hover:scale-[1.02] cursor-default"
+                  className="glass-glow rounded-xl p-4 flex items-center gap-3.5 group cursor-default"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/10 flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-cyan-500/20 transition-all shadow-lg shadow-blue-500/5 group-hover:shadow-blue-500/10">
-                    <Icon size={16} className="text-blue-400 group-hover:text-cyan-400 transition-colors" />
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/15 to-cyan-500/10 flex items-center justify-center flex-shrink-0 group-hover:from-blue-500/25 group-hover:to-cyan-500/15 transition-all shadow-lg shadow-blue-500/5">
+                    <Icon size={18} className="text-blue-400 group-hover:text-cyan-400 transition-colors" />
                   </div>
-                  <span className="text-sm text-gray-300 font-medium group-hover:text-white transition-colors">{item}</span>
+                  <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">{item}</span>
                 </div>
               );
             })}

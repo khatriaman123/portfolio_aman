@@ -24,26 +24,26 @@ export default function WhyMe({ onNavigate, playClick }: WhyMeProps) {
   }, []);
 
   return (
-    <section id="why-me" ref={sectionRef} className="relative py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="reveal text-center mb-16">
-          <span className="text-xs tracking-widest text-cyan-400 uppercase">Why Choose Me</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3">
+    <section id="why-me" ref={sectionRef} className="section-padding">
+      <div className="container-premium">
+        <div className="reveal text-center mb-16 lg:mb-20">
+          <span className="label block mb-4">Why Choose Me</span>
+          <h2 className="display-lg text-white">
             Why Work <span className="gradient-text">With Me</span>
           </h2>
         </div>
 
         <div className="reveal max-w-4xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-3">
             {whyMePoints.map((point, i) => (
               <div
                 key={i}
-                className="group flex items-start gap-3 glass-glow rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] cursor-default"
+                className="group flex items-start gap-3.5 glass-glow rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] cursor-default"
               >
-                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:from-blue-500/30 group-hover:to-cyan-500/20 transition-all shadow-lg shadow-blue-500/5">
+                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500/15 to-cyan-500/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:from-blue-500/25 group-hover:to-cyan-500/15 transition-all shadow-lg shadow-blue-500/5">
                   <CheckCircle2 size={14} className="text-blue-400 group-hover:text-cyan-400 transition-colors" />
                 </div>
-                <span className="text-sm text-gray-300 group-hover:text-white transition-colors">{point}</span>
+                <span className="text-sm text-gray-300 group-hover:text-white transition-colors font-medium">{point}</span>
               </div>
             ))}
           </div>

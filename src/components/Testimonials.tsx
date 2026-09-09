@@ -18,27 +18,27 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section id="testimonials" ref={sectionRef} className="relative py-24 lg:py-32">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="reveal text-center mb-16">
-          <span className="text-xs tracking-widest text-cyan-400 uppercase">Testimonials</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3">
+    <section id="testimonials" ref={sectionRef} className="section-padding">
+      <div className="container-premium">
+        <div className="reveal text-center mb-16 lg:mb-20">
+          <span className="label block mb-4">Testimonials</span>
+          <h2 className="display-lg text-white">
             Client <span className="gradient-text">Feedback</span>
           </h2>
         </div>
 
-        <div className="reveal">
+        <div className="reveal max-w-2xl mx-auto">
           <div className="glass-premium rounded-2xl p-8 sm:p-12 text-center">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/10 flex items-center justify-center shadow-lg shadow-blue-500/10">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500/15 to-cyan-500/10 flex items-center justify-center shadow-lg shadow-blue-500/10">
               <MessageSquare size={28} className="text-blue-400" />
             </div>
-            <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">
+            <h3 className="heading-lg text-white mb-3">
               Testimonials Coming Soon
             </h3>
-            <p className="text-gray-400 max-w-md mx-auto mb-6">
+            <p className="body-md max-w-md mx-auto mb-6">
               Real client testimonials will be featured here. Every project delivers results that speak for themselves.
             </p>
-            <div className="inline-flex items-center gap-2 text-xs text-gray-500">
+            <div className="inline-flex items-center gap-2 text-xs text-gray-600">
               <Clock size={14} />
               <span>Updated regularly as new projects are completed</span>
             </div>

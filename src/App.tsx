@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, lazy, Suspense } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useSound } from './hooks/useSound';
 import LoadingScreen from './components/LoadingScreen';
 import CustomCursor from './components/CustomCursor';
@@ -19,12 +19,11 @@ import ParticleField from './components/ParticleField';
 import ResumeModal from './components/ResumeModal';
 import { Volume2, VolumeX } from 'lucide-react';
 
-// Sound toggle component
 function SoundToggle({ enabled, toggle }: { enabled: boolean; toggle: () => void }) {
   return (
     <button
       onClick={toggle}
-      className="fixed bottom-6 left-6 z-[999] btn-icon w-10 h-10 rounded-full hover:scale-110 transition-all"
+      className="fixed bottom-6 left-6 z-[999] btn-icon hover:scale-110 transition-all"
       aria-label={enabled ? 'Mute sounds' : 'Enable sounds'}
     >
       {enabled ? <Volume2 size={16} className="text-blue-400" /> : <VolumeX size={16} className="text-gray-500" />}
@@ -48,7 +47,6 @@ export default function App() {
     }
   }, []);
 
-  // Initialize Lenis smooth scroll
   useEffect(() => {
     if (loading) return;
 
@@ -69,7 +67,7 @@ export default function App() {
         };
         requestAnimationFrame(raf);
       } catch (e) {
-        // Lenis not available, use native scroll
+        // Lenis not available
       }
     };
 
@@ -82,27 +80,16 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-navy-950 grid-bg">
-      {/* Noise texture overlay */}
       <div className="noise-overlay" />
-      {/* Loading Screen */}
+      
       {loading && <LoadingScreen onComplete={handleLoadingComplete} />}
 
-      {/* Custom Cursor */}
       <CustomCursor />
-
-      {/* Scroll Progress */}
       <ScrollProgress />
-
-      {/* Sound Toggle */}
       <SoundToggle enabled={enabled} toggle={toggle} />
-
-      {/* Back to Top */}
       <BackToTop playClick={playClick} />
-
-      {/* Navbar */}
       <Navbar onNavigate={handleNavigate} playClick={playClick} />
 
-      {/* Main Content */}
       <main>
         <Hero onNavigate={handleNavigate} playClick={playClick} />
         <About />
@@ -115,13 +102,9 @@ export default function App() {
         <Contact playSuccess={playSuccess} playClick={playClick} />
       </main>
 
-      {/* Footer */}
       <Footer onNavigate={handleNavigate} playClick={playClick} />
-
-      {/* Resume Modal (global) */}
       <ResumeModal playClick={playClick} />
 
-      {/* Background ambient effects */}
       <ParticleField />
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />

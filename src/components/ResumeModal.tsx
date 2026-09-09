@@ -17,24 +17,25 @@ export default function ResumeModal({ playClick }: ResumeModalProps) {
     playClick();
     const link = document.createElement('a');
     link.href = '/resume.pdf';
-    link.download = 'Aman_Web_Craft_Resume.pdf';
-    link.target = '_blank';
+    link.download = 'Aman-Web-Craft-Resume.pdf';
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
 
   return (
     <>
-      {/* Resume buttons - can be used in navbar or elsewhere */}
+      {/* Resume buttons */}
       <div className="flex items-center gap-2">
         <button
           onClick={handlePreview}
-          className="btn-icon w-auto px-3 py-2 text-xs font-medium text-gray-300"
+          className="btn-icon w-auto px-3 py-2 text-xs font-medium text-gray-300 gap-1.5"
         >
           <Eye size={12} /> Preview
         </button>
         <button
           onClick={handleDownload}
-          className="btn-icon w-auto px-3 py-2 text-xs font-medium text-gray-300"
+          className="btn-icon w-auto px-3 py-2 text-xs font-medium text-gray-300 gap-1.5"
         >
           <Download size={12} /> Download
         </button>
@@ -47,14 +48,14 @@ export default function ResumeModal({ playClick }: ResumeModalProps) {
             <div className="absolute top-4 right-4 z-10 flex gap-2">
               <button
                 onClick={handleDownload}
-                className="p-2 rounded-lg bg-blue-500/20 text-blue-400 hover:bg-blue-500/30 transition-all"
+                className="btn-icon"
                 aria-label="Download resume"
               >
                 <Download size={16} />
               </button>
               <button
                 onClick={() => setOpen(false)}
-                className="p-2 rounded-lg bg-white/10 text-gray-400 hover:text-white hover:bg-white/20 transition-all"
+                className="btn-icon"
                 aria-label="Close"
               >
                 <X size={16} />
